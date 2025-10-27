@@ -1,120 +1,82 @@
-# Задание 1
-n = int(input('Сколько чисел: '))
-m = int(input('Число M: '))
-x = []
-y = []
-
-i = 0
-while i < n:
-    num = int(input(f'Число {i}: '))
-    x.append(num)
-    i += 1
-
-i = 0
-while i < n:
-    if abs(x[i]) > m:
-        y.append(x[i])
-    i += 1
-
-print('M =', m)
-print('X =', x)
-print('Y =', y)
-
-# Задание 2
-n = int(input('Сколько чисел: '))
-a = []
-
-i = 0
-while i < n:
-    num = int(input(f'Число {i}: '))
-    a.append(num)
-    i += 1
-
-print('Было:', a)
-
-i = 0
-while i < n:
-    if a[i] < 0:
-        a[i] = -a[i]
-    i += 1
-
-print('Стало:', a)
-
-# Задание 3
-n = int(input('Сколько чисел: '))
+#1.1
+N = int(input("Введите количество элементов массива: "))
 arr = []
+print("Введите элементы массива:")
+for i in range(N):
+    element = int(input(f"Элемент {i+1}: "))
+    arr.append(element)
 
-i = 0
-while i < n:
-    num = int(input(f'Число {i}: '))
-    arr.append(num)
-    i += 1
+max_element = arr[0]
+for element in arr:
+    if element > max_element:
+        max_element = element
 
-max_num = arr[0]
-i = 1
-while i < n:
-    if arr[i] > max_num:
-        max_num = arr[i]
-    i += 1
+print("Исходный массив:", arr)
+print("Максимальный элемент:", max_element)
+print("Массив в обратном порядке:", arr[::-1])
 
-print('Самое большое:', max_num)
-print('Наоборот:', arr[::-1])
+#1.2
+numbers = list(map(float, input("Введите элементы массива через пробел: ").split()))
+print("Исходный массив:", numbers)
 
-# Задание 4
-n = int(input('Сколько чисел: '))
-arr = []
+average = sum(numbers) / len(numbers)
 
-i = 0
-while i < n:
-    num = int(input(f'Число {i}: '))
-    arr.append(num)
-    i += 1
+for i in range(len(numbers)):
+    if numbers[i] == 0:
+        numbers[i] = average
 
-min_num = arr[0]
-min_index = 0
-i = 1
-while i < n:
-    if arr[i] < min_num:
-        min_num = arr[i]
-        min_index = i
-    i += 1
+print("Среднее арифметическое:", average)
+print("Массив после замены нулей:", numbers)
 
-print('Самое маленькое:', min_num)
-print('Его номер:', min_index)
 
-# Задание 5
-d = []
-i = 0
-while i < 8:
-    num = int(input(f'Число {i}: '))
-    d.append(num)
-    i += 1
+#2.1
+arr = list(map(int, input("Введите элементы массива через пробел: ").split()))
 
-s = 0
-i = 1
-while i < 8:
-    s += d[i]
-    i += 2
+min_element = min(arr)
+min_index = arr.index(min_element)
 
-print('Массив D:', d)
-print('Сумма нечетных:', s)
+print("Исходный массив:", arr)
+print("Минимальный элемент:", min_element)
+print("Индекс минимального элемента:", min_index)
 
-# Задание 9
-n = int(input('Сколько чисел: '))
-arr = []
+#2.2
+arr = list(map(int, input("Введите целые числа через пробел: ").split()))
 
-i = 0
-while i < n:
-    num = float(input(f'Число {i}: '))
-    arr.append(num)
-    i += 1
+positive_arr = []
+other_arr = []
 
-min_abs = abs(arr[0])
-i = 1
-while i < n:
-    if abs(arr[i]) < min_abs:
-        min_abs = abs(arr[i])
-    i += 1
+for number in arr:
+    if number > 0:
+        positive_arr.append(number)
+    else:
+        other_arr.append(number)
 
-print('Самое маленькое по модулю:', min_abs)
-print('Наоборот:', arr[::-1])
+print("Исходный массив:", arr)
+print("Массив положительных элементов:", positive_arr)
+print("Массив остальных элементов:", other_arr)
+
+#5.1
+arr = list(map(int, input("Введите 10 чисел через пробел: ").split()))
+
+print("Массив:", arr)
+print("Пары отрицательных чисел:")
+
+found = False
+for i in range(len(arr) - 1):
+    if arr[i] < 0 and arr[i+1] < 0:
+        print(f"({arr[i]}, {arr[i+1]})")
+        found = True
+
+if not found:
+    print("Таких пар нет")
+#5.2
+arr = list(map(int, input("Введите 10 целых чисел через пробел: ").split()))
+
+print("Исходный массив:", arr)
+
+new_arr = []
+for num in arr:
+    if num not in new_arr:
+        new_arr.append(num)
+
+print("Новый массив без повторяющихся элементов:", new_arr)
