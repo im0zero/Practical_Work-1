@@ -19,7 +19,6 @@ def process_data(input_filename, output_filename):
 
 
         with open(output_filename, 'w', encoding='utf-8') as output_file:
-            # Записываем результаты
             for result in results:
                 output_file.write(result + '\n')
 
@@ -50,3 +49,4 @@ if __name__ == "__main__":
 
 
     process_data(input_file, output_file)
+
